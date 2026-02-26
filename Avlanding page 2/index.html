@@ -1,368 +1,232 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Acharya Ventures - Build with Clarity</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<meta name="theme-color" content="#102216"/>
+<meta name="description" content="Acharya Ventures - Human-Centric Startup Growth. Every great startup begins with one clear decision."/>
+<link rel="manifest" href="manifest.json"/>
+<title>Acharya Ventures | Human-Centric Startup Growth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              // Warm Peach and Terracotta Palette
-              primary: "#D97757", // Terracotta
-              "primary-hover": "#C05F40",
-              "primary-light": "#FBEAE5", 
-              "secondary": "#F2A584", // Peach
-              "background-light": "#FFF9F6", // Very light warm white
-              "background-dark": "#1A1412", // Dark warm gray/brown
-              "surface-light": "#FFFFFF",
-              "surface-dark": "#261E1C",
-              "text-light": "#2D2422",
-              "text-dark": "#EAE0DD",
-              "text-muted-light": "#665652",
-              "text-muted-dark": "#B0A09C",
-            },
-            fontFamily: {
-              display: ["'Plus Jakarta Sans'", "sans-serif"],
-              body: ["'Inter'", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.75rem",
-              'xl': '1rem',
-              '2xl': '1.5rem',
-            },
-            backgroundImage: {
-                'pattern-light': "url('https://www.transparenttextures.com/patterns/cubes.png')",
-                'gradient-hero': "linear-gradient(135deg, #FFF9F6 0%, #FBEAE5 100%)",
-                'gradient-hero-dark': "linear-gradient(135deg, #1A1412 0%, #2D2422 100%)",
-            }
-          },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#2bee6c",
+          "primary-dark": "#1fa84d",
+          "background-light": "#f6f8f6",
+          "background-dark": "#102216",
+          "charcoal": "#1a1c1a",
+          "soft-beige": "#f5f2ed",
         },
-      };
-    </script>
+        fontFamily: { "display": ["Inter", "sans-serif"] },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .organic-shape { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+</style>
 </head>
-<body class="font-body bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased transition-colors duration-300">
-<nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-background-dark/80 border-b border-gray-100 dark:border-gray-800 transition-all duration-300">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<div class="flex-shrink-0 flex items-center gap-3">
-<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-2xl">rocket_launch</span>
-</div>
-<span class="font-display font-bold text-xl tracking-tight text-gray-900 dark:text-white">Acharya Ventures</span>
-</div>
-<div class="hidden md:flex space-x-8 items-center">
-<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Home</a>
-<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">How We Help</a>
-<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Startup Gurukul</a>
-<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">Blogs</a>
-<a class="text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors" href="#">About Us</a>
-<a class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-lg text-white bg-gray-900 hover:bg-primary dark:bg-white dark:text-background-dark dark:hover:bg-primary dark:hover:text-white transition-all shadow-sm hover:shadow-md" href="#">
-                        Contact Us
-                    </a>
-</div>
-<div class="md:hidden flex items-center">
-<button class="text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none">
-<span class="material-symbols-outlined text-3xl">menu</span>
-</button>
-</div>
-</div>
-</div>
-</nav>
-<section class="relative pt-20 pb-32 overflow-hidden bg-gradient-hero dark:bg-gradient-hero-dark">
-<div class="absolute inset-0 opacity-40 pointer-events-none">
-<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/10"></div>
-<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-primary/20 blur-3xl dark:bg-primary/10"></div>
-</div>
-<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-light/50 dark:bg-primary/10 border border-primary/20 text-primary font-semibold text-sm mb-8 animate-fade-in-up">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                Partner for Ambitious Founders
-            </div>
-<h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-8 leading-tight">
-                Build with Clarity.<br/>
-<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Scale from Day One.</span>
-</h1>
-<p class="mt-6 max-w-2xl mx-auto text-xl text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-                A focused, step-by-step roadmap to validate, launch, and grow without guesswork or clutter. We help you turn ambition into traction.
-            </p>
-<div class="mt-10 flex justify-center gap-4">
-<a class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5" href="#">
-                    Start Your Journey
-                    <span class="material-symbols-outlined ml-2 text-xl">arrow_forward</span>
-</a>
-<a class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 dark:bg-surface-dark dark:text-white dark:border-gray-700 dark:hover:border-gray-600 transition-all" href="#">
-                    Explore Our Model
-                </a>
-</div>
-</div>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="p-2 bg-primary rounded-lg text-charcoal">
+        <span class="material-symbols-outlined block text-xl sm:text-2xl">bubble_chart</span>
+      </div>
+      <h2 class="text-lg sm:text-xl font-bold tracking-tight">Acharya Ventures</h2>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 lg:gap-10">
+      <a class="text-sm font-semibold hover:text-primary transition-colors py-2" href="#approach">Our Approach</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors py-2" href="#programs">Programs</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors py-2" href="#community">Community</a>
+    </nav>
+    <button class="hidden sm:inline-flex bg-primary hover:bg-primary-dark text-charcoal px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-primary/20">
+      Book Your Diagnostic
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+    <div class="relative z-10">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary-dark font-bold text-xs uppercase tracking-widest mb-4 sm:mb-6">Built for Founders</span>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-6 sm:mb-8">
+        Every Great Startup Begins With One <span class="text-primary-dark">Clear Decision.</span>
+      </h1>
+      <p class="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 mb-8 sm:mb-10 leading-relaxed max-w-lg">
+        The decision to build the right way. We provide the scaffolding, experts, and capital readiness you need to scale humanely.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <button class="bg-primary text-charcoal px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:shadow-xl hover:shadow-primary/30 transition-all flex items-center justify-center gap-2">
+          Start Your Journey <span class="material-symbols-outlined text-xl">arrow_forward</span>
+        </button>
+        <button class="bg-white border-2 border-slate-200 text-charcoal px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:border-primary transition-all">
+          View Success Stories
+        </button>
+      </div>
+    </div>
+    <div class="relative order-first lg:order-none">
+      <div class="absolute -top-10 -right-10 sm:-top-20 sm:-right-20 w-48 sm:w-96 h-48 sm:h-96 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+        <img alt="Founders collaborating" class="w-full h-auto object-cover aspect-[4/5] sm:aspect-square" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoc7ht-P8eOVjH6s396SPbvMRFDD_ITlzCi_0gn5vhpAB8W6X31QmwQsjRL32kpi3dNrFeyfJj2e_diMCRbkW9N5ojejb9UMIAz_gTT5UKZc-ld1XRVmqZ2LwuDk6fdXfqgKA-k8FcF2vf_0bOheCN_eP6f873ems_1fhTTotKF9y3husyFumgGpvvXVAXy8P9qOOYOYclyUY68qCfI6t3R4JOX0Usv3RNfezbtlDbKQK9UdGglROgl_PEjvTwAnSok4swkErrZQ"/>
+      </div>
+      <div class="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 right-4 sm:right-auto bg-white dark:bg-charcoal p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4 border border-slate-100 dark:border-slate-800">
+        <div class="p-2 sm:p-3 bg-primary/20 rounded-full text-primary-dark">
+          <span class="material-symbols-outlined text-xl sm:text-2xl">verified</span>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Success Rate</p>
+          <p class="text-xl sm:text-2xl font-black text-charcoal dark:text-white">84% Retention</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="py-24 bg-white dark:bg-surface-dark relative">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-20">
-<h2 class="font-display text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Systematic Growth Engine</h2>
-<p class="mt-4 text-lg text-text-muted-light dark:text-text-muted-dark max-w-2xl mx-auto">
-                    We replace chaos with a proven methodology designed to minimize risk and maximize outcome.
-                </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-<div class="group relative p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
-<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-<span class="material-symbols-outlined text-9xl text-primary">radio_button_checked</span>
-</div>
-<div class="w-14 h-14 mb-6 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined text-3xl">target</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-4">Define</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-                        Diagnose your startup's bottlenecks. Identify demand signals, product gaps, and the right traction metrics to focus on immediately.
-                    </p>
-</div>
-<div class="group relative p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
-<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-<span class="material-symbols-outlined text-9xl text-primary">grid_view</span>
-</div>
-<div class="w-14 h-14 mb-6 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined text-3xl">strategy</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-4">Strategy</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-                        Craft a stage-appropriate growth plan—from MVP design to GTM experiments—so every step compounds into measurable value.
-                    </p>
-</div>
-<div class="group relative p-8 bg-background-light dark:bg-background-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
-<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-<span class="material-symbols-outlined text-9xl text-primary">bar_chart</span>
-</div>
-<div class="w-14 h-14 mb-6 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-<span class="material-symbols-outlined text-3xl">rocket</span>
-</div>
-<h3 class="font-display text-2xl font-bold text-gray-900 dark:text-white mb-4">Build</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-                        Execute lean, sprint-driven programs that validate demand, unlock scale, and set up fundraising readiness with real data.
-                    </p>
-</div>
-</div>
-</div>
+
+<!-- The Founder Reality -->
+<section class="bg-soft-beige dark:bg-slate-900 py-16 sm:py-24">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">The Founder Reality</h2>
+    <p class="text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed italic px-2">
+      "You have ambition. You have energy... but growth feels inconsistent. What you need isn't more content. <span class="text-primary-dark font-bold underline decoration-primary/40 underline-offset-8">You need direction.</span>"
+    </p>
+  </div>
 </section>
-<section class="py-24 bg-background-light dark:bg-background-dark overflow-hidden">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col lg:flex-row items-center gap-16">
-<div class="w-full lg:w-1/2">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-medium text-xs uppercase tracking-wider mb-6">
-                        Founder First Approach
-                    </div>
-<h2 class="font-display text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                        For Founders,<br/>by Founders
-                    </h2>
-<p class="text-lg text-text-muted-light dark:text-text-muted-dark mb-8 leading-relaxed">
-                        We help founders cut through the clutter with structured venture-building programmes (L1-L6) designed for every stage of growth. No generic advice, just actionable sprints.
-                    </p>
-<ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-0.5">
-<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
-</span>
-<span class="text-gray-700 dark:text-gray-200 font-medium">Idea Validation &amp; Founder-Market Fit</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-0.5">
-<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
-</span>
-<span class="text-gray-700 dark:text-gray-200 font-medium">MVP Design &amp; Pre-PMF Sprints</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-0.5">
-<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
-</span>
-<span class="text-gray-700 dark:text-gray-200 font-medium">Go-To-Market Experiments</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-0.5">
-<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
-</span>
-<span class="text-gray-700 dark:text-gray-200 font-medium">Growth &amp; Fundraising Readiness</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-0.5">
-<span class="material-symbols-outlined text-white text-sm font-bold">check</span>
-</span>
-<span class="text-gray-700 dark:text-gray-200 font-medium">Investor Relations &amp; Scaling Systems</span>
-</li>
-</ul>
-</div>
-<div class="w-full lg:w-1/2 relative">
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-secondary/20 to-primary/10 rounded-full blur-3xl -z-10"></div>
-<div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800">
-<img alt="Team collaborating on startup strategy in a modern office" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5uoEnD5YSL3xVvM9v9aX_7HrBg_t5kpUc5zP_eDyXN_n9lXXBL1PtvWqd7p15rN1GYuytqYsjePJt6snpkv9DsIecfHiuH9mo-3Mquaygjw4aSAXskTnSLzxfOkyRU_jmiTX67mcu5jiNOT9Dmz_dy4HM-Km1kO-a50ewd8XvTLxEGPR-iGVqZPJFtkuSz611fQ8r7fulVDxHOqGTto06X_PRZU2q-TAqrerNS2LmmdnLmijM2WknJngfnxcwQDSB71nFTqIHrA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-<div class="text-white">
-<p class="font-bold text-lg">Structured Sprints</p>
-<p class="text-sm opacity-90">Moving from idea to execution</p>
-</div>
-</div>
-</div>
-<div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 hidden md:block animate-bounce" style="animation-duration: 3s;">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<div>
-<p class="text-xs text-gray-500 dark:text-gray-400">Success Rate</p>
-<p class="font-bold text-gray-900 dark:text-white text-lg">94% Growth</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Stage-Based Venture Building -->
+<section class="py-16 sm:py-24 bg-white dark:bg-background-dark" id="approach">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4">Stage-Based Venture Building</h2>
+      <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base px-2">We meet you where you are. Tailored support for every milestone in your startup's evolution.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div class="p-6 sm:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary transition-all group">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary-dark mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-charcoal transition-colors">
+          <span class="material-symbols-outlined">lightbulb</span>
+        </div>
+        <h3 class="font-bold text-base sm:text-lg mb-2">Idea &amp; Validation</h3>
+        <p class="text-sm text-slate-500">Problem-solution fit and customer discovery sprints.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary transition-all group">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary-dark mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-charcoal transition-colors">
+          <span class="material-symbols-outlined">rocket_launch</span>
+        </div>
+        <h3 class="font-bold text-base sm:text-lg mb-2">MVP &amp; Pre-PMF</h3>
+        <p class="text-sm text-slate-500">Building lean, testing fast, and iterative loops.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary transition-all group">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary-dark mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-charcoal transition-colors">
+          <span class="material-symbols-outlined">campaign</span>
+        </div>
+        <h3 class="font-bold text-base sm:text-lg mb-2">Go-To-Market</h3>
+        <p class="text-sm text-slate-500">Acquisition channels and sales velocity optimization.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary transition-all group">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary-dark mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-charcoal transition-colors">
+          <span class="material-symbols-outlined">payments</span>
+        </div>
+        <h3 class="font-bold text-base sm:text-lg mb-2">Growth &amp; Fundraising</h3>
+        <p class="text-sm text-slate-500">Pitch mastery, data rooms, and investor relations.</p>
+      </div>
+      <div class="p-6 sm:p-8 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-primary transition-all group sm:col-span-2 md:col-span-1">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary-dark mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-charcoal transition-colors">
+          <span class="material-symbols-outlined">settings_suggest</span>
+        </div>
+        <h3 class="font-bold text-base sm:text-lg mb-2">Scaling Systems</h3>
+        <p class="text-sm text-slate-500">Hiring, culture, and operational excellence.</p>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="py-24 bg-white dark:bg-surface-dark">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="font-display text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Why Acharya Ventures Works?</h2>
-<p class="mt-4 text-lg text-text-muted-light dark:text-text-muted-dark">We believe strong founders need strong systems to win.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-<div class="text-center p-6">
-<div class="w-20 h-20 mx-auto mb-6 bg-orange-50 dark:bg-orange-900/10 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl text-primary">foundation</span>
-</div>
-<h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">Strong Fundamentals</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark text-sm">Solve for clarity, focus, and traction before chasing vanity metrics.</p>
-</div>
-<div class="text-center p-6">
-<div class="w-20 h-20 mx-auto mb-6 bg-orange-50 dark:bg-orange-900/10 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl text-primary">account_balance</span>
-</div>
-<h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">Institutional Capital First</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark text-sm">Evidence-backed metrics, pricing clarity, and GTM discipline that investors love.</p>
-</div>
-<div class="text-center p-6">
-<div class="w-20 h-20 mx-auto mb-6 bg-orange-50 dark:bg-orange-900/10 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl text-primary">handshake</span>
-</div>
-<h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-3">Control Oriented Investments</h3>
-<p class="text-text-muted-light dark:text-text-muted-dark text-sm">Not just advice—actual sprints, frameworks, and deep founder support.</p>
-</div>
-</div>
-<div class="relative rounded-3xl bg-primary overflow-hidden shadow-2xl">
-<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
-<div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-xl"></div>
-<div class="relative grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/20 p-8 md:p-12">
-<div class="p-6 text-center">
-<div class="text-5xl font-bold text-white mb-2">5+</div>
-<div class="text-primary-light font-medium uppercase tracking-wide text-sm">Cohorts Completed</div>
-</div>
-<div class="p-6 text-center">
-<div class="text-5xl font-bold text-white mb-2">200+</div>
-<div class="text-primary-light font-medium uppercase tracking-wide text-sm">Founders Supported</div>
-</div>
-<div class="p-6 text-center">
-<div class="text-5xl font-bold text-white mb-2">₹50 Cr+</div>
-<div class="text-primary-light font-medium uppercase tracking-wide text-sm">Raised by Alumni</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Programs -->
+<section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark" id="programs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4">Launch &amp; Scale Programs</h2>
+      <p class="text-slate-500 text-sm sm:text-base">Structured paths for every level of founder maturity.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 sm:gap-10 max-w-5xl mx-auto">
+      <div class="bg-soft-beige dark:bg-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all">
+        <h3 class="text-2xl sm:text-3xl font-black mb-2">Zero to One</h3>
+        <p class="text-primary-dark font-bold mb-6">The Validation Cohort</p>
+        <ul class="space-y-3 sm:space-y-4 mb-8">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-dark text-sm">check_circle</span><span class="text-sm sm:text-base">Weekly Validation Sprints</span></li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-dark text-sm">check_circle</span><span class="text-sm sm:text-base">No-Code MVP Templates</span></li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-dark text-sm">check_circle</span><span class="text-sm sm:text-base">Daily Expert Support Chat</span></li>
+        </ul>
+        <button class="w-full py-3.5 sm:py-4 rounded-xl border-2 border-primary text-charcoal font-bold hover:bg-primary transition-all">Apply for Cohort</button>
+      </div>
+      <div class="bg-charcoal dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-10 text-white border border-slate-800 hover:shadow-2xl transition-all relative overflow-hidden">
+        <span class="absolute top-0 right-0 p-3 bg-primary text-charcoal px-4 py-1 rounded-bl-lg text-xs font-bold">MOST POPULAR</span>
+        <h3 class="text-2xl sm:text-3xl font-black mb-2 pt-8">One to Ten</h3>
+        <p class="text-primary font-bold mb-6">The Growth Engine</p>
+        <ul class="space-y-3 sm:space-y-4 mb-8 text-slate-300">
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-sm sm:text-base">Fractional CxO Access</span></li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-sm sm:text-base">Fundraising Data Room Audit</span></li>
+          <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="text-sm sm:text-base">Growth Channel Playbooks</span></li>
+        </ul>
+        <button class="w-full py-3.5 sm:py-4 rounded-xl bg-primary text-charcoal font-bold hover:bg-primary-dark transition-all">Request Invitation</button>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="py-24 bg-background-light dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col-reverse lg:flex-row items-center gap-16">
-<div class="w-full lg:w-1/2">
-<div class="relative p-8 bg-white dark:bg-surface-dark rounded-3xl shadow-xl border border-gray-100 dark:border-gray-800">
-<div class="absolute -top-4 -right-4 bg-secondary text-white p-3 rounded-lg shadow-lg">
-<span class="material-symbols-outlined">auto_graph</span>
-</div>
-<img alt="Person working on complex planning on a whiteboard" class="w-full h-64 md:h-80 object-cover rounded-xl mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeH_2-YiK7FjtOzs1H4UE1m_LFWHYTIGuJPhfsUv5Yhl6JwLue70JokjfJFzu5o7RQQiPJqmQXIEehv324IBW1G9lu2yyhrSDUxUJhtZmgyccSs0mmgWUIbi2gjIZyTn9Z6ksXm6KKDUon0mu_wlSWr-yWzT1zPT3tQChbO_EhxAqdGP3Efa0p6LrfOpHGD6QzPF4h4jYcsDlII6rTHoxHHYpf_8irCOmOR3kOpgeDNMgTZNF_tfTdKQ3xkX3GqMrpf87EStZBRQ"/>
-<div class="flex justify-between items-end">
-<div>
-<h4 class="font-bold text-gray-900 dark:text-white text-lg">The Acharya Method</h4>
-<p class="text-sm text-gray-500 dark:text-gray-400">Proprietary framework for rapid validation</p>
-</div>
-<button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</div>
-<div class="w-full lg:w-1/2">
-<h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                        Bespoke Coaching: <br/>
-<span class="text-primary">Evidence-led sprints</span> from idea to scale.
-                    </h2>
-<p class="text-lg text-text-muted-light dark:text-text-muted-dark mb-8">
-                        Every startup is unique, but the patterns of failure are predictable. We customize our coaching to your specific sector and stage, ensuring you build what the market actually wants.
-                    </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold rounded-lg transition-colors shadow-lg">
-                            Apply for Coaching
-                        </button>
-<button class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:border-primary hover:text-primary transition-colors">
-                            Read Success Stories
-                        </button>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Community -->
+<section class="py-16 sm:py-24" id="community">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap items-center gap-4 sm:gap-8 mb-8">
+      <div><p class="text-3xl sm:text-4xl font-black text-primary-dark">5+</p><p class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest">Cohorts</p></div>
+      <div class="hidden sm:block h-10 w-px bg-slate-200"></div>
+      <div><p class="text-3xl sm:text-4xl font-black text-primary-dark">200+</p><p class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest">Founders</p></div>
+      <div class="hidden sm:block h-10 w-px bg-slate-200"></div>
+      <div><p class="text-3xl sm:text-4xl font-black text-primary-dark">₹50 Cr+</p><p class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest">Raised</p></div>
+    </div>
+    <div class="bg-primary/5 rounded-2xl sm:rounded-3xl p-6 sm:p-10">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6">Founder Community</h2>
+      <p class="text-lg sm:text-xl text-slate-500 mb-6 sm:mb-8">An execution circle, not a networking group. We focus on shared wins, brutal honesty, and peer accountability.</p>
+    </div>
+  </div>
 </section>
-<footer class="bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 pt-16 pb-8">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-<div>
-<div class="flex items-center gap-2 mb-6">
-<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-lg">rocket_launch</span>
-</div>
-<span class="font-display font-bold text-lg text-gray-900 dark:text-white">Acharya Ventures</span>
-</div>
-<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">
-                        Building the next generation of scalable, sustainable startups through clarity and disciplined execution.
-                    </p>
-<div class="flex space-x-4">
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><i class="material-symbols-outlined">mail</i></a>
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><i class="material-symbols-outlined">public</i></a>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 dark:text-white mb-6">Company</h4>
-<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Partners</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 dark:text-white mb-6">Resources</h4>
-<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Startup Gurukul</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Case Studies</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-gray-900 dark:text-white mb-6">Stay Updated</h4>
-<p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Get the latest insights on startup building.</p>
-<form class="flex flex-col gap-3">
-<input class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-background-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your email" type="email"/>
-<button class="w-full px-4 py-2 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-colors" type="submit">Subscribe</button>
-</form>
-</div>
-</div>
-<div class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm text-gray-500 dark:text-gray-500">© 2023 Acharya Ventures. All rights reserved.</p>
-<div class="flex gap-6 text-sm text-gray-500 dark:text-gray-500">
-<a class="hover:text-gray-900 dark:hover:text-white" href="#">Privacy Policy</a>
-<a class="hover:text-gray-900 dark:hover:text-white" href="#">Terms of Service</a>
-</div>
-</div>
-</div>
+
+<!-- Diagnostic CTA -->
+<section class="py-16 sm:py-24 bg-soft-beige dark:bg-slate-900 border-y border-primary/10">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="bg-white dark:bg-charcoal rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-2xl p-6 sm:p-8 lg:p-12">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6">Before joining anything, we diagnose.</h2>
+      <p class="text-slate-500 mb-6 sm:mb-8 text-sm sm:text-base">We don't sell programs; we solve growth blockers. Our diagnostic call is the first step to your custom roadmap.</p>
+      <button class="bg-primary text-charcoal px-6 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-black text-lg sm:text-xl hover:shadow-xl hover:shadow-primary/30 transition-all flex items-center gap-3">
+        Book Your Diagnostic <span class="material-symbols-outlined">schedule</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 sm:py-20 bg-charcoal text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center gap-3 text-white mb-4 sm:mb-6">
+      <div class="p-2 bg-primary rounded-lg text-charcoal">
+        <span class="material-symbols-outlined block text-xl sm:text-2xl">bubble_chart</span>
+      </div>
+      <h2 class="text-lg sm:text-xl font-bold tracking-tight">Acharya Ventures</h2>
+    </div>
+    <p class="max-w-sm mb-6 sm:mb-8 text-sm text-base">Supporting the next generation of founders to build with clarity, purpose, and sustainable growth.</p>
+    <div class="pt-6 sm:pt-8 border-t border-slate-800 text-xs">
+      <p>© 2024 Acharya Ventures. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -370,4 +234,5 @@
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   }
 </script>
-</body></html>
+</body>
+</html>
