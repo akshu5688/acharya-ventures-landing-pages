@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#FFF7ED">
+  <link rel="manifest" href="manifest.json">
+  <title>Startup Gurukul — Where Founders Grow Together</title>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --primary: #EA580C;
+      --accent: #FACC15;
+      --bg: #FFF7ED;
+      --secondary: #3F2A1D;
+      --white: #FFFFFF;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 20px rgba(234, 88, 12, 0.08);
+      --shadow-hover: 0 8px 30px rgba(234, 88, 12, 0.12);
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== Typography ===== */
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+    h3 { font-size: clamp(1.125rem, 3vw, 1.375rem); }
+
+    /* ===== Layout ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .container { padding: 0 2rem; }
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 247, 237, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      min-height: 56px;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--secondary);
+      border-radius: 2px;
+      transition: transform 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    nav[aria-hidden="false"] { display: block; }
+    nav a {
+      display: block;
+      padding: 0.75rem 0;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(63, 42, 29, 0.08);
+    }
+    nav a:last-child { border-bottom: none; }
+    @media (min-width: 768px) {
+      .nav-toggle { display: none; }
+      nav {
+        position: static;
+        display: flex;
+        gap: 1.5rem;
+        padding: 0;
+        box-shadow: none;
+      }
+      nav a { padding: 0; border-bottom: none; }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 2.5rem 0 3rem;
+      text-align: center;
+    }
+    .hero h1 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .hero .tagline {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .hero .subtext {
+      font-size: 1rem;
+      color: var(--secondary);
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      text-align: left;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      min-width: 200px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover { background: rgba(234, 88, 12, 0.08); }
+    @media (min-width: 480px) {
+      .hero-buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+    }
+
+    /* ===== Section Styling ===== */
+    section {
+      padding: 2.5rem 0;
+    }
+    section h2 {
+      text-align: center;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== Built for Builders ===== */
+    .builders-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .builder-card {
+      background: var(--white);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(234, 88, 12, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .builder-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .builder-card::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 480px) {
+      .builders-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .builders-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    }
+
+    /* ===== Phases ===== */
+    .phases { background: var(--white); }
+    .phase-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(234, 88, 12, 0.12);
+    }
+    .phase-card:last-child { margin-bottom: 0; }
+    .phase-number {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .phase-card h3 { color: var(--secondary); margin-bottom: 1rem; }
+    .phase-focus {
+      margin-bottom: 1rem;
+    }
+    .phase-focus h4 {
+      font-size: 0.875rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .phase-focus ul {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .phase-focus li {
+      padding-left: 1.25rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+    .phase-focus li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .phase-output h4 {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    .phase-output .output-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .phase-output .output-item {
+      background: var(--white);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary);
+      border: 1px solid rgba(234, 88, 12, 0.2);
+    }
+
+    /* ===== Added Features ===== */
+    .features-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--white);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(234, 88, 12, 0.06);
+    }
+    .feature-item::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #C2410C 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 0;
+    }
+    .cta-section h2 { color: var(--white); margin-bottom: 0.75rem; }
+    .cta-section p {
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-section .btn {
+      background: var(--accent);
+      color: var(--secondary);
+    }
+    .cta-section .btn:hover { background: #FDE047; }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--secondary);
+      opacity: 0.8;
+    }
+
+    /* ===== Founder Image Placeholder ===== */
+    .hero-image {
+      width: 100%;
+      max-width: 320px;
+      margin: 2rem auto 0;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(250, 204, 21, 0.15) 100%);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <span class="logo">Startup Gurukul</span>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav" aria-hidden="true">
+          <a href="#built-for-builders">Built for Builders</a>
+          <a href="#phases">The Journey</a>
+          <a href="#features">Features</a>
+          <a href="#join">Join</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Startup Gurukul</h1>
+        <p class="tagline">Where Founders Grow Together</p>
+        <p class="subtext">Not just a program — a founder movement. Learn, build, and grow alongside ambitious builders navigating the same journey.</p>
+        <ul class="hero-features">
+          <li>🤝 Learn with peers.</li>
+          <li>🚀 Build with support.</li>
+          <li>🌍 Grow with community.</li>
+        </ul>
+        <div class="hero-buttons">
+          <a href="#join" class="btn btn-primary">Join the Cohort</a>
+          <a href="#built-for-builders" class="btn btn-secondary">Meet the Community</a>
+        </div>
+        <div class="hero-image">Real founder photography</div>
+      </div>
+    </section>
+
+    <section id="built-for-builders">
+      <div class="container">
+        <h2>Built for Builders</h2>
+        <div class="builders-grid">
+          <div class="builder-card">Founder peer circles & accountability groups</div>
+          <div class="builder-card">Weekly hot-seat problem solving</div>
+          <div class="builder-card">Community feedback on your product</div>
+          <div class="builder-card">Lifelong founder network</div>
+          <div class="builder-card">Emotional & strategic support</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="phases" class="phases">
+      <div class="container">
+        <h2>The Journey</h2>
+
+        <div class="phase-card">
+          <div class="phase-number">01 VALIDATE</div>
+          <h3>Discover What Truly Matters</h3>
+          <div class="phase-focus">
+            <h4>Focus Areas</h4>
+            <ul>
+              <li>Understanding real customer pain</li>
+              <li>Idea validation with real conversations</li>
+              <li>Early testing with community support</li>
+              <li>MVP experiments & feedback loops</li>
+            </ul>
+          </div>
+          <div class="phase-output">
+            <h4>Community Output</h4>
+            <div class="output-list">
+              <span class="output-item">✔ Clarity & confidence</span>
+              <span class="output-item">✔ First early adopters</span>
+              <span class="output-item">✔ Product direction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-number">02 GROWTH</div>
+          <h3>Find Your First True Fans</h3>
+          <div class="phase-focus">
+            <h4>Focus Areas</h4>
+            <ul>
+              <li>Story-driven marketing</li>
+              <li>Community-led growth</li>
+              <li>Founder branding & positioning</li>
+              <li>Sales through trust & relationships</li>
+            </ul>
+          </div>
+          <div class="phase-output">
+            <h4>Community Output</h4>
+            <div class="output-list">
+              <span class="output-item">✔ Loyal early users</span>
+              <span class="output-item">✔ Brand voice clarity</span>
+              <span class="output-item">✔ Growth momentum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-number">03 SCALE</div>
+          <h3>Grow with Purpose & Sustainability</h3>
+          <div class="phase-focus">
+            <h4>Focus Areas</h4>
+            <ul>
+              <li>Sustainable scaling strategies</li>
+              <li>Culture & team building</li>
+              <li>Strategic collaborations</li>
+              <li>Impact & long-term growth</li>
+            </ul>
+          </div>
+          <div class="phase-output">
+            <h4>Community Output</h4>
+            <div class="output-list">
+              <span class="output-item">✔ Strong team culture</span>
+              <span class="output-item">✔ Partnership opportunities</span>
+              <span class="output-item">✔ Growth with resilience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <h2>Added Features</h2>
+        <div class="features-list">
+          <div class="feature-item">Founder circles & mastermind groups</div>
+          <div class="feature-item">Community demo nights</div>
+          <div class="feature-item">Mental resilience & founder wellness sessions</div>
+          <div class="feature-item">Peer mentorship matching</div>
+          <div class="feature-item">Alumni network access</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="cta-section">
+      <div class="container">
+        <h2>Ready to Grow Together?</h2>
+        <p>Join the founder movement. Learn, build, and scale with a community that gets it.</p>
+        <a href="#" class="btn">Join the Cohort</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© Startup Gurukul — Where Founders Grow Together</div>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+    function toggleNav() {
+      const nav = document.getElementById('main-nav');
+      const btn = document.querySelector('.nav-toggle');
+      const open = nav.getAttribute('aria-hidden') === 'true';
+      nav.setAttribute('aria-hidden', !open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('main-nav').setAttribute('aria-hidden', 'true');
+        document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "acharya-ventures-landing-pages",
+  "version": "1.0.0",
+  "description": "All Acharya Ventures & Startup Gurukul landing pages - easy deployment",
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "dev": "npx serve . -p 8080"
+  }
+}

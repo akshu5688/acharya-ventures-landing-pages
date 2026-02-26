@@ -1,0 +1,11 @@
+{
+  "name": "Startup Gurukul",
+  "short_name": "Startup Gurukul",
+  "description": "Your Founder Journey Starts Here",
+  "start_url": "/test2.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4EFE6",
+  "theme_color": "#3A5A40",
+  "scope": "/"
+}
