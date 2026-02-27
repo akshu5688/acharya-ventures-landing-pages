@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#FFF7ED">
+  <meta name="theme-color" content="#F8F4ED">
   <link rel="manifest" href="manifest.json">
   <title>Startup Gurukul — Where Founders Grow Together</title>
   <style>
-    /* ===== CSS Variables ===== */
+    /* ===== CSS Variables — SG: Earthy tones with educational warmth ===== */
     :root {
-      --primary: #EA580C;
-      --accent: #FACC15;
-      --bg: #FFF7ED;
-      --secondary: #3F2A1D;
+      --primary: #8B6914;
+      --accent: #C4A35A;
+      --bg: #F8F4ED;
+      --secondary: #3D3226;
       --white: #FFFFFF;
       --radius: 16px;
       --radius-sm: 12px;
-      --shadow: 0 4px 20px rgba(234, 88, 12, 0.08);
-      --shadow-hover: 0 8px 30px rgba(234, 88, 12, 0.12);
+      --shadow: 0 4px 20px rgba(139, 105, 20, 0.08);
+      --shadow-hover: 0 8px 30px rgba(139, 105, 20, 0.12);
     }
 
     /* ===== Reset & Base ===== */
@@ -54,10 +54,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 247, 237, 0.95);
+      background: rgba(248, 244, 237, 0.95);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+      border-bottom: 1px solid rgba(139, 105, 20, 0.1);
     }
     .header-inner {
       display: flex;
@@ -195,14 +195,14 @@
       color: var(--primary);
       border: 2px solid var(--primary);
     }
-    .btn-secondary:hover { background: rgba(234, 88, 12, 0.08); }
+    .btn-secondary:hover { background: rgba(139, 105, 20, 0.08); }
     @media (min-width: 480px) {
       .hero-buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; }
     }
 
-    /* ===== Section Styling ===== */
+    /* ===== Section Styling — Large breathing sections ===== */
     section {
-      padding: 2.5rem 0;
+      padding: 3.5rem 0;
     }
     section h2 {
       text-align: center;
@@ -220,7 +220,7 @@
       padding: 1.25rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(234, 88, 12, 0.08);
+      border: 1px solid rgba(139, 105, 20, 0.08);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .builder-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
@@ -247,7 +247,7 @@
       border-radius: var(--radius);
       padding: 1.5rem;
       margin-bottom: 1.25rem;
-      border: 1px solid rgba(234, 88, 12, 0.12);
+      border: 1px solid rgba(139, 105, 20, 0.12);
     }
     .phase-card:last-child { margin-bottom: 0; }
     .phase-number {
@@ -299,7 +299,7 @@
       font-size: 0.8rem;
       font-weight: 500;
       color: var(--primary);
-      border: 1px solid rgba(234, 88, 12, 0.2);
+      border: 1px solid rgba(139, 105, 20, 0.2);
     }
 
     /* ===== Added Features ===== */
@@ -315,7 +315,7 @@
       padding: 1rem 1.25rem;
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(234, 88, 12, 0.06);
+      border: 1px solid rgba(139, 105, 20, 0.06);
     }
     .feature-item::before {
       content: '✓';
@@ -327,7 +327,7 @@
 
     /* ===== CTA ===== */
     .cta-section {
-      background: linear-gradient(135deg, var(--primary) 0%, #C2410C 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, #6B5210 100%);
       color: var(--white);
       text-align: center;
       padding: 3rem 0;
@@ -344,7 +344,7 @@
       background: var(--accent);
       color: var(--secondary);
     }
-    .cta-section .btn:hover { background: #FDE047; }
+    .cta-section .btn:hover { background: #D4B86A; }
 
     /* ===== Footer ===== */
     footer {
@@ -361,7 +361,7 @@
       max-width: 320px;
       margin: 2rem auto 0;
       aspect-ratio: 4/3;
-      background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(250, 204, 21, 0.15) 100%);
+      background: linear-gradient(135deg, rgba(139, 105, 20, 0.12) 0%, rgba(196, 163, 90, 0.15) 100%);
       border-radius: var(--radius);
       display: flex;
       align-items: center;
@@ -381,10 +381,10 @@
           <span></span><span></span><span></span>
         </button>
         <nav id="main-nav" aria-hidden="true">
-          <a href="#built-for-builders">Built for Builders</a>
-          <a href="#phases">The Journey</a>
-          <a href="#features">Features</a>
-          <a href="#join">Join</a>
+          <a href="#programs">Programs</a>
+          <a href="#one-on-one">1:1 Coaching</a>
+          <a href="#content-hub">Resources</a>
+          <a href="#join">Apply</a>
         </nav>
       </div>
     </div>
@@ -394,30 +394,47 @@
     <section class="hero">
       <div class="container">
         <h1>Startup Gurukul</h1>
-        <p class="tagline">Where Founders Grow Together</p>
-        <p class="subtext">Not just a program — a founder movement. Learn, build, and grow alongside ambitious builders navigating the same journey.</p>
+        <p class="tagline">From Idea to Execution — With Clarity</p>
+        <p class="subtext">Transform your startup journey. Education and coaching designed for revenue-ready ventures. Build with focus, execute with discipline, scale with confidence.</p>
         <ul class="hero-features">
-          <li>🤝 Learn with peers.</li>
-          <li>🚀 Build with support.</li>
-          <li>🌍 Grow with community.</li>
+          <li>✓ Clarity-first frameworks</li>
+          <li>✓ Execution-focused programs</li>
+          <li>✓ Revenue-ready outcomes</li>
         </ul>
         <div class="hero-buttons">
-          <a href="#join" class="btn btn-primary">Join the Cohort</a>
-          <a href="#built-for-builders" class="btn btn-secondary">Meet the Community</a>
+          <a href="#join" class="btn btn-primary">Apply for Cohort</a>
+          <a href="#programs" class="btn btn-secondary">Explore Programs</a>
         </div>
-        <div class="hero-image">Real founder photography</div>
+        <div class="hero-image">Founder-focused imagery</div>
       </div>
     </section>
 
-    <section id="built-for-builders">
+    <section id="programs">
       <div class="container">
-        <h2>Built for Builders</h2>
+        <h2>Programs</h2>
+        <p style="text-align:center;max-width:560px;margin:0 auto 2rem;color:var(--secondary);opacity:0.9;">Revenue-focused education. Cohort programs, self-paced blueprints, and founder superpowers.</p>
         <div class="builders-grid">
-          <div class="builder-card">Founder peer circles & accountability groups</div>
-          <div class="builder-card">Weekly hot-seat problem solving</div>
-          <div class="builder-card">Community feedback on your product</div>
-          <div class="builder-card">Lifelong founder network</div>
-          <div class="builder-card">Emotional & strategic support</div>
+          <div class="builder-card"><strong>Cohort Programs</strong> — Live cohorts with structured sprints, peer accountability, and expert-led sessions.</div>
+          <div class="builder-card"><strong>Self-Paced Blueprints</strong> — Learn at your pace. Frameworks, templates, and step-by-step guides.</div>
+          <div class="builder-card"><strong>Founder Superpowers</strong> — Build clarity, execution, and positioning. Modules designed for traction.</div>
+        </div>
+        <div class="hero-buttons" style="margin-top:2rem;">
+          <a href="#join" class="btn btn-primary">Apply for Cohort</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="one-on-one">
+      <div class="container">
+        <h2>1:1 Coaching</h2>
+        <p style="text-align:center;max-width:560px;margin:0 auto 2rem;color:var(--secondary);opacity:0.9;">Premium positioning. Limited slots. Application-based.</p>
+        <div class="builders-grid" style="grid-template-columns:1fr;">
+        <div class="builder-card" style="max-width:600px;margin:0 auto;">
+          <strong>Premium 1:1</strong> — Deep-dive sessions with experienced founders. Get clarity on strategy, execution, and fundraising. Limited slots available. Application required.
+        </div>
+        </div>
+        <div class="hero-buttons" style="margin-top:2rem;">
+          <a href="#join" class="btn btn-primary">Apply for 1:1</a>
         </div>
       </div>
     </section>
@@ -494,24 +511,33 @@
       </div>
     </section>
 
-    <section id="features">
+    <section id="content-hub">
       <div class="container">
-        <h2>Added Features</h2>
+        <h2>Free Content Hub</h2>
+        <p style="text-align:center;max-width:560px;margin:0 auto 2rem;color:var(--secondary);opacity:0.9;">High-value resources. SEO-optimized articles. Lead magnets.</p>
         <div class="features-list">
-          <div class="feature-item">Founder circles & mastermind groups</div>
-          <div class="feature-item">Community demo nights</div>
-          <div class="feature-item">Mental resilience & founder wellness sessions</div>
-          <div class="feature-item">Peer mentorship matching</div>
-          <div class="feature-item">Alumni network access</div>
+          <div class="feature-item">SEO-optimized articles on validation, GTM, and fundraising</div>
+          <div class="feature-item">Lead magnets: templates, checklists, and frameworks</div>
+          <div class="feature-item">Free guides to build clarity and execution habits</div>
         </div>
+        <div class="hero-buttons" style="margin-top:1.5rem;">
+          <a href="#join" class="btn btn-secondary">Get Free Resources</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nest-vision" style="background:rgba(139,105,20,0.06);border:1px solid rgba(139,105,20,0.12);">
+      <div class="container">
+        <h2 style="font-size:1.25rem;opacity:0.9;">Nest Vision</h2>
+        <p style="text-align:center;max-width:520px;margin:0 auto;color:var(--secondary);opacity:0.9;font-size:0.95rem;">A future sustainable co-living ecosystem for founders. Where builders live, learn, and grow together. Coming soon.</p>
       </div>
     </section>
 
     <section id="join" class="cta-section">
       <div class="container">
-        <h2>Ready to Grow Together?</h2>
-        <p>Join the founder movement. Learn, build, and scale with a community that gets it.</p>
-        <a href="#" class="btn">Join the Cohort</a>
+        <h2>Ready to Transform Your Journey?</h2>
+        <p>Apply for cohort programs or 1:1 coaching. Limited slots. Revenue-focused education for ambitious founders.</p>
+        <a href="../gurukullanding page 2/" class="btn">Apply Now</a>
       </div>
     </section>
   </main>
