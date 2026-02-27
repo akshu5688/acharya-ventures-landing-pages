@@ -23,7 +23,7 @@ self.addEventListener('fetch', (e) => {
       })
       .catch(() =>
         caches.match(e.request).then((r) =>
-          r || caches.match('/test2.html') || caches.match('/index.html') || caches.match('/')
+          r || caches.match('/index.html') || caches.match('/')
         )
       )
   );
