@@ -5,331 +5,411 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"/>
   <meta name="theme-color" content="#3A5A40"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-  <title>Startup Gurukul - Founder Journey</title>
+  <title>Startup Gurukul - Learn How to Build and Scale Startups</title>
   <link rel="manifest" href="manifest.json"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    /* ===== OFFLINE-FIRST: No external dependencies ===== */
     :root {
       --primary: #3A5A40;
       --primary-hover: #2d4732;
       --secondary: #8B6F47;
       --accent: #C9D8C5;
+      --soft-green: #6B8E6B;
+      --cream: #F4EFE6;
+      --light-brown: #D4C4A8;
       --bg-light: #F4EFE6;
       --bg-dark: #101410;
-      --white: #FFFFFF;
       --text: #1e293b;
       --text-muted: #64748b;
-      --safe-top: env(safe-area-inset-top, 0);
-      --safe-bottom: env(safe-area-inset-bottom, 0);
-      --safe-left: env(safe-area-inset-left, 0);
-      --safe-right: env(safe-area-inset-right, 0);
+      --white: #FFFFFF;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg-light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.6;
       overflow-x: hidden;
-      min-height: 100dvh;
-      min-height: 100vh;
-      padding-bottom: var(--safe-bottom);
-      -webkit-tap-highlight-color: transparent;
     }
     img { max-width: 100%; height: auto; display: block; }
-    a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-
-    /* ===== Typography ===== */
-    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
-    h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); }
     h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
     h3 { font-size: clamp(1.125rem, 3vw, 1.375rem); }
 
-    /* ===== Layout — Desktop-first ===== */
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
     @media (min-width: 1024px) { .container { padding: 0 2rem; } }
 
-    /* ===== Header ===== */
+    /* Header */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(244, 239, 230, 0.9);
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(244, 239, 230, 0.95);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(139, 111, 71, 0.1);
-      padding-top: var(--safe-top);
     }
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      min-height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem; min-height: 56px;
     }
-    .logo { font-size: 1.25rem; font-weight: 900; color: var(--secondary); }
     .nav-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .nav-links a { color: var(--primary); font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: color 0.2s; }
+    .nav-links a { color: var(--primary); font-weight: 600; font-size: 0.9375rem; text-decoration: none; }
     .nav-links a:hover { color: var(--secondary); }
-    .icon { width: 20px; height: 20px; flex-shrink: 0; }
 
-    /* ===== Hero ===== */
-    .hero { padding: 2rem 0 3rem; }
-    @media (min-width: 768px) { .hero { padding: 3rem 0 4rem; } }
-    .hero-card {
-      position: relative;
-      min-height: min(420px, 55vh);
-      border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background: linear-gradient(135deg, #2d4732 0%, #1a2e1d 50%, #0f1a10 100%);
+    /* Hero */
+    .hero {
+      padding: 4rem 0 5rem;
+      background: linear-gradient(180deg, var(--cream) 0%, rgba(244,239,230,0.9) 100%);
     }
-    .hero-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(8px);
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .hero-badge span { font-size: 0.75rem; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 0.05em; }
-    .hero-content { padding: 1.5rem; }
-    .hero h1 { color: white; font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.15; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-    .hero p { color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.5rem; max-width: 90%; }
-    .btn-cta {
-      display: inline-flex;
+    @media (min-width: 768px) { .hero { padding: 5rem 0 6rem; } }
+    .hero-inner {
+      display: grid;
+      gap: 2rem;
       align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    .hero-content { text-align: center; }
+    @media (min-width: 1024px) { .hero-content { text-align: left; } }
+    .hero h1 { color: var(--text); margin-bottom: 1rem; }
+    .hero .subheading {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    @media (min-width: 1024px) { .hero .subheading { margin-left: 0; margin-right: 0; } }
+    .hero-buttons {
+      display: flex; flex-wrap: wrap; gap: 1rem;
       justify-content: center;
-      gap: 0.5rem;
-      width: auto;
-      min-width: 200px;
+    }
+    @media (min-width: 1024px) { .hero-buttons { justify-content: flex-start; } }
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1rem 1.75rem; min-height: 48px;
+      font-weight: 700; font-size: 1rem;
+      border-radius: 0.5rem; cursor: pointer;
+      text-decoration: none; border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary); color: white;
+      box-shadow: 0 4px 14px rgba(58,90,64,0.3);
+    }
+    .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      background: white; color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover { background: var(--accent); border-color: var(--accent); }
+    .hero-visual {
+      min-height: 280px;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(58,90,64,0.08) 0%, rgba(201,216,197,0.3) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+
+    /* Founder Journey - 4-step horizontal cards */
+    .journey-section {
+      padding: 4rem 0;
+      background: white;
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
+    .section-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-label::before { content: ''; width: 2rem; height: 2px; background: var(--secondary); }
+    .section-label span {
+      font-size: 0.75rem; font-weight: 700; color: var(--secondary);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .section-title { margin-bottom: 2rem; color: var(--text); }
+    .journey-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .journey-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .journey-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    }
+    .journey-card {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border-left: 4px solid var(--primary);
+      transition: box-shadow 0.2s;
+    }
+    .journey-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .journey-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text); }
+    .journey-card ul { list-style: none; }
+    .journey-card li {
+      font-size: 0.9rem; color: var(--text-muted);
+      padding: 0.25rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .journey-card li::before {
+      content: '•'; position: absolute; left: 0;
+      color: var(--secondary); font-weight: bold;
+    }
+
+    /* Programs - Course cards */
+    .programs-section { padding: 4rem 0; }
+    .program-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) { .program-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .program-cards { grid-template-columns: repeat(3, 1fr); } }
+    .program-card {
+      background: white;
+      padding: 1.75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(139,111,71,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .program-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .program-card .badge {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .program-card h3 { margin-bottom: 0.5rem; color: var(--text); }
+    .program-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .program-card .card-actions {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+    }
+    .program-card .card-actions a {
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--primary); text-decoration: none;
+    }
+    .program-card .card-actions .enroll {
+      background: var(--primary); color: white;
+      padding: 0.5rem 1rem; border-radius: 0.375rem;
+    }
+    .program-card .card-actions .enroll:hover { background: var(--primary-hover); }
+
+    /* Free Demo - Split layout */
+    .demo-section {
+      padding: 4rem 0;
+      background: white;
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .demo-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    .demo-benefits h2 { margin-bottom: 1rem; color: var(--text); }
+    .demo-benefits p { color: var(--text-muted); margin-bottom: 1rem; }
+    .demo-benefits ul { list-style: none; }
+    .demo-benefits li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+    .demo-benefits li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--primary); font-weight: bold;
+    }
+    .demo-form {
+      background: var(--cream);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(139,111,71,0.1);
+    }
+    .demo-form h3 { margin-bottom: 1rem; color: var(--text); font-size: 1.25rem; }
+    .demo-form label {
+      display: block;
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.25rem;
+    }
+    .demo-form input, .demo-form select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(139,111,71,0.2);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      background: white;
+    }
+    .demo-form button {
+      width: 100%;
+      padding: 1rem;
       background: var(--primary);
       color: white;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 1rem 1.5rem;
-      min-height: 48px;
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
-      margin-top: 1rem;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      font-size: 1rem;
     }
-    .btn-cta:hover { background: var(--primary-hover); }
-    .btn-cta:active { transform: scale(0.98); }
+    .demo-form button:hover { background: var(--primary-hover); }
 
-    /* ===== Timeline ===== */
-    .timeline {
-      background: white;
-      border-radius: 1.5rem;
-      margin: 0 auto 3rem;
-      padding: 2rem 1.5rem;
-      max-width: 1200px;
-      width: calc(100% - 3rem);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      border: 1px solid rgba(139, 111, 71, 0.05);
+    /* Mentor / Founder Section */
+    .mentor-section {
+      padding: 4rem 0;
+      background: var(--cream);
     }
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding: 0 0.5rem;
-    }
-    .timeline h2 { color: var(--text); font-size: 1.5rem; }
-    .phase-badge { font-size: 0.75rem; font-weight: 700; color: var(--secondary); background: rgba(139,111,71,0.1); padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
-    .timeline-grid {
+    .mentor-grid {
       display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 0 1.5rem;
-      position: relative;
-      max-width: 720px;
-    }
-    .timeline-line {
-      position: absolute;
-      left: 23px;
-      top: 1rem;
-      bottom: 2rem;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), rgba(139,111,71,0.2), transparent);
-      z-index: 0;
-    }
-    .timeline-step { position: relative; z-index: 1; }
-    .timeline-dot {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--bg-light);
-      border: 2px solid var(--accent);
-      display: flex;
+      grid-template-columns: 1fr;
+      gap: 2rem;
       align-items: center;
-      justify-content: center;
-      color: var(--primary);
     }
-    .timeline-dot svg { width: 24px; height: 24px; }
-    .timeline-content { padding: 0.5rem 0 2rem; }
-    .timeline-content:last-child { padding-bottom: 0.5rem; }
-    .phase-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--secondary); margin-bottom: 0.25rem; }
-    .timeline h3 { font-size: 1.125rem; color: var(--text); margin-bottom: 0.25rem; }
-    .timeline p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem; }
-    .timeline-img {
-      height: 8rem;
-      border-radius: 0.5rem;
-      background: linear-gradient(135deg, rgba(58,90,64,0.15) 0%, rgba(201,216,197,0.2) 100%);
+    @media (min-width: 768px) {
+      .mentor-grid { grid-template-columns: 280px 1fr; }
     }
+    .mentor-image {
+      width: 100%; max-width: 280px;
+      aspect-ratio: 1;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, var(--light-brown) 0%, var(--accent) 100%);
+      object-fit: cover;
+    }
+    .mentor-content h2 { margin-bottom: 1rem; color: var(--text); }
+    .mentor-content .philosophy {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .mentor-content p { color: var(--text-muted); margin-bottom: 0.75rem; }
 
-    /* ===== Cards ===== */
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
+    /* Testimonials */
+    .testimonials-section {
+      padding: 4rem 0;
+      background: white;
+      border-top: 1px solid rgba(139,111,71,0.08);
     }
-    .section-label::before { content: ''; width: 2rem; height: 1px; background: var(--secondary); }
-    .section-label span { font-size: 0.75rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
-    .section-title { font-size: 1.875rem; font-weight: 900; color: var(--text); margin-bottom: 1.5rem; padding: 0 0.5rem; }
-    @media (min-width: 1024px) { .section-title { font-size: 2.25rem; } }
-    .cards { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 0 0 2rem; }
-    @media (min-width: 768px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .cards { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
-    .card {
+    .testimonials-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 1rem;
+    }
+    .testimonials-wrapper::-webkit-scrollbar { display: none; }
+    .testimonials-grid {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.5rem 0;
+    }
+    .testimonial-card {
+      flex: 0 0 min(100%, 340px);
+      scroll-snap-align: start;
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(139,111,71,0.08);
+    }
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card .author { font-weight: 600; color: var(--text); }
+    .testimonial-card .stage { font-size: 0.875rem; color: var(--text-muted); }
+
+    /* Learning Resources */
+    .resources-section { padding: 4rem 0; }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .resource-card {
       background: white;
       padding: 1.25rem;
       border-radius: 0.75rem;
-      border-left: 4px solid var(--primary);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid rgba(139,111,71,0.1);
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow 0.2s, border-color 0.2s;
     }
-    .card.card-secondary { border-left-color: var(--secondary); }
-    .card.card-accent { border-left-color: var(--accent); }
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.75rem;
+    .resource-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border-color: var(--accent);
     }
-    .card-icon {
-      width: 40px;
-      height: 40px;
+    .resource-card h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .resource-card span { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+      color: white;
+      text-align: center;
+      border-radius: 1rem;
+      margin: 0 1.5rem 4rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4rem;
+    }
+    .final-cta h2 { color: white; margin-bottom: 1rem; }
+    .final-cta p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; max-width: 32rem; margin-left: auto; margin-right: auto; }
+    .final-cta .cta-buttons {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+    .final-cta .btn-white {
+      background: white; color: var(--primary);
+      padding: 1rem 1.75rem;
+      font-weight: 700;
       border-radius: 0.5rem;
-      background: rgba(58,90,64,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-    }
-    .card-icon svg { width: 20px; height: 20px; }
-    .card.card-secondary .card-icon { background: rgba(139,111,71,0.1); color: var(--secondary); }
-    .card.card-accent .card-icon { background: rgba(201,216,197,0.3); color: var(--primary); }
-    .card-badge { font-size: 0.625rem; font-weight: 700; background: #e2e8f0; color: var(--text-muted); padding: 0.25rem 0.5rem; border-radius: 0.25rem; text-transform: uppercase; }
-    .card h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-    .card p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; }
-    .card a {
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
-      color: var(--secondary);
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-decoration: none;
-      min-height: 44px;
-      align-items: center;
+      justify-content: center;
     }
-    .card a:active { text-decoration: underline; }
-    .card a svg { width: 16px; height: 16px; }
-
-    /* ===== Footer CTA ===== */
-    .footer-cta {
-      background: var(--secondary);
+    .final-cta .btn-outline {
+      background: transparent;
       color: white;
-      border-radius: 1rem;
-      padding: 3rem 2rem;
-      margin: 0 auto 4rem;
-      max-width: 1200px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .footer-cta::before {
-      content: '';
-      position: absolute;
-      top: -2.5rem;
-      left: -2.5rem;
-      width: 8rem;
-      height: 8rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      filter: blur(40px);
-    }
-    .footer-cta::after {
-      content: '';
-      position: absolute;
-      bottom: -2.5rem;
-      right: -2.5rem;
-      width: 8rem;
-      height: 8rem;
-      background: rgba(58,90,64,0.2);
-      border-radius: 50%;
-      filter: blur(40px);
-    }
-    .footer-cta-inner { position: relative; z-index: 1; }
-    .footer-cta h2 { color: white; font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .footer-cta p { color: rgba(255,255,255,0.8); font-size: 0.9375rem; margin-bottom: 1.5rem; max-width: 28rem; margin-left: auto; margin-right: auto; }
-    .btn-trial {
-      width: auto;
-      min-width: 200px;
-      padding: 0.875rem 2rem;
-      background: white;
-      color: var(--secondary);
+      border: 2px solid white;
+      padding: 1rem 1.75rem;
       font-weight: 700;
-      padding: 0.75rem 1.5rem;
-      min-height: 48px;
-      border: none;
       border-radius: 0.5rem;
-      cursor: pointer;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
-    .btn-trial:active { transform: scale(0.95); }
-
-    /* ===== Offline indicator ===== */
-    .offline-badge {
-      position: fixed;
-      bottom: calc(1rem + var(--safe-bottom));
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,0.95);
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      border: 1px solid rgba(0,0,0,0.05);
-      z-index: 50;
-    }
-
-    /* ===== Scrollbar ===== */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 20px; }
+    .final-cta .btn-outline:hover { background: rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-inner">
-        <a href="index.html" style="text-decoration:none;"><img src="logo.png" alt="Startup Gurukul" style="height:40px;display:block;"></a>
+        <a href="index.html"><img src="logo.png" alt="Startup Gurukul" style="height:44px;"/></a>
         <nav class="nav-links">
           <a href="#programs">Programs</a>
-          <a href="sprints.html">Sprints</a>
-          <a href="#content-hub">Resources</a>
-          <a href="#nest-vision">Nest Vision</a>
+          <a href="#journey">Journey</a>
+          <a href="#demo">Free Demo</a>
+          <a href="#resources">Resources</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -337,117 +417,222 @@
   </header>
 
   <main>
+    <!-- 1. Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="hero-card">
-          <div class="hero-badge"><span>Revenue-Focused Education</span></div>
+        <div class="hero-inner">
           <div class="hero-content">
-            <h1>From Idea to Execution — With Clarity</h1>
-            <p>Transform your startup journey. Education and coaching designed for revenue-ready ventures. Build with focus, execute with discipline.</p>
-            <button class="btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Apply for Cohort <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <h1>Learn How to Build and Scale Startups with Clarity</h1>
+            <p class="subheading">Startup Gurukul helps aspiring founders validate ideas, build execution systems, and grow businesses through structured coaching and real-world frameworks.</p>
+            <div class="hero-buttons">
+              <a href="#demo" class="btn-primary">Book Free Demo</a>
+              <a href="#programs" class="btn-secondary">Explore Programs</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <span>Founder mentor guiding students — illustration placeholder</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="container" id="programs">
-      <div class="section-label"><span>Programs</span></div>
-      <h2 class="section-title">Cohort Programs & Founder Superpowers</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-            <span class="card-badge">Cohort</span>
+    <!-- 2. Founder Journey Section -->
+    <section class="journey-section" id="journey">
+      <div class="container">
+        <div class="section-label"><span>Founder Journey</span></div>
+        <h2 class="section-title">The Structured Path Founders Follow</h2>
+        <div class="journey-grid">
+          <div class="journey-card">
+            <h3>Validate</h3>
+            <ul>
+              <li>Market research</li>
+              <li>Customer discovery</li>
+            </ul>
           </div>
-          <h3>Weekly Sprints</h3>
-          <p>Structured sprints for execution. One major milestone every 7 days. Cohort-based accountability.</p>
-          <a href="sprints.html">Start Sprint <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="card card-secondary">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-            <span class="card-badge">Self-Paced</span>
+          <div class="journey-card">
+            <h3>Build</h3>
+            <ul>
+              <li>MVP development</li>
+              <li>Product validation</li>
+            </ul>
           </div>
-          <h3>Self-Paced Blueprints</h3>
-          <p>Learn at your pace. Frameworks, templates, and step-by-step guides for clarity and execution.</p>
-          <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Blueprints <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="card card-accent">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <span class="card-badge">1:1</span>
+          <div class="journey-card">
+            <h3>Grow</h3>
+            <ul>
+              <li>Customer acquisition</li>
+              <li>Marketing strategy</li>
+            </ul>
           </div>
-          <h3>Premium 1:1 Coaching</h3>
-          <p>Limited slots. Application-based. Deep-dive sessions for strategy, execution, and fundraising.</p>
-          <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Apply for 1:1 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="journey-card">
+            <h3>Scale</h3>
+            <ul>
+              <li>Systems</li>
+              <li>Partnerships</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="container" id="workspace">
-      <div class="section-label"><span>Workspace</span></div>
-      <h2 class="section-title">Startup Coaching & Mentorship</h2>
-      <div class="cards">
-        <div class="card">
-          <span class="card-badge">Bespoke Coaching</span>
-          <h3>Evidence-led sprints from idea to scale</h3>
-          <p>Based on your stage and goals, we place you in the right sprint: Zero to One (Validation or Launch) or One to Ten (GTM Scale-Up or Fundraising). Each sprint is evidence-led and outcome-defined.</p>
-          <p style="font-size:0.8rem;color:var(--secondary);margin-top:0.5rem;"><strong>1:1 Mentorship</strong> · <strong>Outcome Focused</strong> · <strong>Evidence-Based</strong></p>
-          <a href="sprints.html">Explore Sprints <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- 3. Programs Section -->
+    <section class="programs-section" id="programs">
+      <div class="container">
+        <div class="section-label"><span>Programs</span></div>
+        <h2 class="section-title">What You Can Learn</h2>
+        <div class="program-cards">
+          <div class="program-card">
+            <span class="badge">For idea-stage founders</span>
+            <h3>Startup Foundation Program</h3>
+            <p>Learn validation and MVP building. Get clarity on your idea before you build.</p>
+            <div class="card-actions">
+              <a href="#demo">View Details</a>
+              <a href="#demo" class="enroll">Enroll Now</a>
+            </div>
+          </div>
+          <div class="program-card">
+            <span class="badge">For early startups</span>
+            <h3>Growth Program</h3>
+            <p>Customer acquisition and GTM strategy. Scale your first 100 customers.</p>
+            <div class="card-actions">
+              <a href="#demo">View Details</a>
+              <a href="#demo" class="enroll">Enroll Now</a>
+            </div>
+          </div>
+          <div class="program-card">
+            <span class="badge">Mindset & leadership</span>
+            <h3>Founder Superpowers</h3>
+            <p>Mindset, decision-making, and leadership. Build the founder you need to be.</p>
+            <div class="card-actions">
+              <a href="#demo">View Details</a>
+              <a href="#demo" class="enroll">Enroll Now</a>
+            </div>
+          </div>
         </div>
-        <div class="card card-secondary">
-          <span class="card-badge">On Demand</span>
-          <h3>Fractional specialists that scale with you</h3>
-          <p>Plug in fractional experts for Tech, Growth, Finance, Legal, and Hiring so you execute like a bigger team without adding headcount. Ship faster, track the right metrics, lower CAC.</p>
-          <p style="font-size:0.8rem;color:var(--secondary);margin-top:0.5rem;">Tech Experts · Growth Specialists · Finance Pros · Support Group</p>
-          <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="card card-accent">
-          <span class="card-badge">Community</span>
-          <h3>Smart builders make momentum contagious</h3>
-          <p>A curated room of serious builders where momentum compounds. Weekly group Q&A and AMAs, peer reviews that sharpen decisions, warm introductions, templates and playbooks.</p>
-          <p style="font-size:0.8rem;color:var(--secondary);margin-top:0.5rem;">Peer Network · Weekly AMAs · Templates</p>
-          <a href="sprints.html">Join Community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="background:white;border-radius:0.75rem;padding:1.5rem;margin-bottom:2rem;border:1px solid rgba(139,111,71,0.08);">
-      <div class="section-label"><span>Methodology</span></div>
-      <h2 class="section-title">Converting Marathons into Sprints</h2>
-      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem;">Traditional entrepreneurship education is like running a marathon — overwhelming and exhausting. We break down the startup journey into focused, achievable sprints.</p>
-      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem;">A sprint is a concentrated, time-bound learning experience that takes you from confusion to clarity, from idea to action. Each sprint delivers real results: validate ideas, build MVPs, and create momentum.</p>
-      <a href="sprints.html" style="display:inline-flex;align-items:center;gap:0.25rem;color:var(--secondary);font-weight:700;font-size:0.875rem;text-decoration:none;">Explore Sprint 1 — Validation with Fundamentals <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </section>
-
-    <section class="container" id="content-hub">
-      <div class="section-label"><span>Free Resources</span></div>
-      <h2 class="section-title">Content Hub</h2>
-      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem;padding:0 0.5rem;">High-value resources. SEO-optimized articles. Lead magnets.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Articles & Guides</h3>
-          <p>SEO-optimized content on validation, GTM, and fundraising.</p>
-          <a href="#contact">Get Free Resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="#demo" class="btn-primary">Book Free Demo</a>
         </div>
       </div>
     </section>
 
-    <section class="container" id="nest-vision" style="background:rgba(58,90,64,0.06);border-radius:0.75rem;padding:1.5rem;margin-bottom:2rem;border:1px solid rgba(58,90,64,0.1);">
-      <div class="section-label"><span>Nest Vision</span></div>
-      <p style="color:var(--text-muted);font-size:0.9rem;">A future sustainable co-living ecosystem for founders. Where builders live, learn, and grow together. Coming soon.</p>
+    <!-- 4. Free Demo Section -->
+    <section class="demo-section" id="demo">
+      <div class="container">
+        <div class="section-label"><span>Free Demo</span></div>
+        <h2 class="section-title">Book a Free Startup Diagnostic Session</h2>
+        <div class="demo-grid">
+          <div class="demo-benefits">
+            <p>Understand your idea, identify growth gaps, and receive an execution roadmap.</p>
+            <ul>
+              <li>30-minute 1:1 diagnostic call</li>
+              <li>Idea validation assessment</li>
+              <li>Personalized execution roadmap</li>
+              <li>No commitment required</li>
+            </ul>
+          </div>
+          <div class="demo-form">
+            <h3>Book Your Session</h3>
+            <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your name"/>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com"/>
+              <label for="stage">Startup stage</label>
+              <select id="stage" name="stage">
+                <option value="">Select stage</option>
+                <option value="idea">Idea stage</option>
+                <option value="validation">Validation</option>
+                <option value="mvp">MVP / Early product</option>
+                <option value="growth">Growth</option>
+              </select>
+              <button type="submit">Book session</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <div class="footer-cta" id="contact">
-      <div class="footer-cta-inner">
-        <h2>Ready to Transform Your Journey?</h2>
-        <p>Apply for cohort programs or 1:1 coaching. Limited slots. Revenue-focused education.</p>
-        <button class="btn-trial">Apply Now</button>
+    <!-- 5. Mentor / Founder Section -->
+    <section class="mentor-section">
+      <div class="container">
+        <div class="section-label"><span>Our Founder</span></div>
+        <h2 class="section-title">Who Guides Your Journey</h2>
+        <div class="mentor-grid">
+          <div class="mentor-image-placeholder" style="width:100%;max-width:280px;aspect-ratio:1;border-radius:1rem;background:linear-gradient(135deg, var(--light-brown) 0%, var(--accent) 100%);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;">Founder image</div>
+          <div class="mentor-content">
+            <p class="philosophy">"Startup Gurukul was created to help founders move from confusion to structured execution."</p>
+            <p>Built from real experience guiding early-stage founders, our approach combines frameworks with hands-on coaching. We believe clarity comes from structure—and structure comes from the right systems.</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- 6. Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-label"><span>Testimonials</span></div>
+        <h2 class="section-title">What Founders Say</h2>
+        <div class="testimonials-wrapper">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <blockquote>"The Gurukul framework helped me validate my idea and get my first customers."</blockquote>
+              <div class="author">— Founder name</div>
+              <div class="stage">Pre-seed · B2B SaaS</div>
+            </div>
+            <div class="testimonial-card">
+              <blockquote>"Structured sprints gave me clarity. I went from confused to shipping in 4 weeks."</blockquote>
+              <div class="author">— Founder name</div>
+              <div class="stage">Idea stage · Consumer</div>
+            </div>
+            <div class="testimonial-card">
+              <blockquote>"The 1:1 coaching was worth every rupee. My pitch deck improved 10x."</blockquote>
+              <div class="author">— Founder name</div>
+              <div class="stage">Seed · Fintech</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="#demo" class="btn-primary">Book Free Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Learning Resources Section -->
+    <section class="resources-section" id="resources">
+      <div class="container">
+        <div class="section-label"><span>Resources</span></div>
+        <h2 class="section-title">Learning Resources</h2>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Add value and bring people back.</p>
+        <div class="resources-grid">
+          <a href="#contact" class="resource-card">
+            <h4>Startup guides</h4>
+            <span>Step-by-step frameworks</span>
+          </a>
+          <a href="#contact" class="resource-card">
+            <h4>Founder frameworks</h4>
+            <span>Decision-making tools</span>
+          </a>
+          <a href="#contact" class="resource-card">
+            <h4>Case studies</h4>
+            <span>Real founder stories</span>
+          </a>
+          <a href="#contact" class="resource-card">
+            <h4>Blog articles</h4>
+            <span>Validation, GTM, fundraising</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Final CTA Section -->
+    <section class="final-cta" id="contact">
+      <h2>Start Your Founder Journey Today</h2>
+      <p>Join Startup Gurukul and move from uncertainty to structured growth. Book a free demo or explore our programs.</p>
+      <div class="cta-buttons">
+        <a href="#demo" class="btn-white">Book Free Demo</a>
+        <a href="#programs" class="btn-outline">Join Startup Gurukul</a>
+      </div>
+    </section>
   </main>
-
-  <div class="offline-badge">Works offline</div>
 
   <script>
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
