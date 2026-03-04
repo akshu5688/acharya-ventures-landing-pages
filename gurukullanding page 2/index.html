@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"/>
   <meta name="theme-color" content="#3A5A40"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <title>Startup Gurukul - Learn How to Build and Scale Startups</title>
+  <title>Startup Gurukul - From Confusion to Execution Clarity</title>
   <link rel="manifest" href="manifest.json"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
@@ -18,7 +18,6 @@
       --cream: #F4EFE6;
       --light-brown: #D4C4A8;
       --bg-light: #F4EFE6;
-      --bg-dark: #101410;
       --text: #1e293b;
       --text-muted: #64748b;
       --white: #FFFFFF;
@@ -52,9 +51,17 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem; min-height: 56px;
     }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .nav-links a { color: var(--primary); font-weight: 600; font-size: 0.9375rem; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
     .nav-links a:hover { color: var(--secondary); }
+    .nav-apply { background: var(--primary); color: white !important; padding: 0.5rem 1rem; border-radius: 0.375rem; }
+    .nav-apply:hover { background: var(--primary-hover); color: white !important; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(244,239,230,0.98); padding: 1rem; gap: 0.5rem; }
+    }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--primary); }
+    @media (max-width: 768px) { .nav-toggle { display: block; } }
 
     /* Hero */
     .hero {
@@ -112,12 +119,7 @@
       color: var(--text-muted); font-size: 0.9rem;
     }
 
-    /* Founder Journey - 4-step horizontal cards */
-    .journey-section {
-      padding: 4rem 0;
-      background: white;
-      border-top: 1px solid rgba(139,111,71,0.08);
-    }
+    /* Section common */
     .section-label {
       display: flex; align-items: center; gap: 0.5rem;
       margin-bottom: 0.75rem;
@@ -128,17 +130,20 @@
       text-transform: uppercase; letter-spacing: 0.1em;
     }
     .section-title { margin-bottom: 2rem; color: var(--text); }
+
+    /* Founder Journey */
+    .journey-section {
+      padding: 4rem 0;
+      background: white;
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
     .journey-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
-    @media (min-width: 768px) {
-      .journey-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .journey-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-    }
+    @media (min-width: 768px) { .journey-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .journey-grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
     .journey-card {
       background: var(--cream);
       padding: 1.5rem;
@@ -148,19 +153,9 @@
     }
     .journey-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
     .journey-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text); }
-    .journey-card ul { list-style: none; }
-    .journey-card li {
-      font-size: 0.9rem; color: var(--text-muted);
-      padding: 0.25rem 0;
-      padding-left: 1.25rem;
-      position: relative;
-    }
-    .journey-card li::before {
-      content: '•'; position: absolute; left: 0;
-      color: var(--secondary); font-weight: bold;
-    }
+    .journey-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* Programs - Course cards */
+    /* Programs */
     .programs-section { padding: 4rem 0; }
     .program-cards {
       display: grid;
@@ -190,9 +185,7 @@
     }
     .program-card h3 { margin-bottom: 0.5rem; color: var(--text); }
     .program-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
-    .program-card .card-actions {
-      display: flex; gap: 0.75rem; flex-wrap: wrap;
-    }
+    .program-card .card-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .program-card .card-actions a {
       font-size: 0.875rem; font-weight: 600;
       color: var(--primary); text-decoration: none;
@@ -203,7 +196,43 @@
     }
     .program-card .card-actions .enroll:hover { background: var(--primary-hover); }
 
-    /* Free Demo - Split layout */
+    /* Premium 1:1 Coaching */
+    .coaching-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, rgba(58,90,64,0.06) 0%, rgba(201,216,197,0.15) 100%);
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
+    .coaching-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 2px solid var(--secondary);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .coaching-card .exclusive-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--secondary);
+      background: rgba(139,111,71,0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .coaching-card h3 { margin-bottom: 1rem; }
+    .coaching-card ul { list-style: none; margin-bottom: 1.5rem; }
+    .coaching-card li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-muted);
+    }
+    .coaching-card li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--primary); font-weight: bold;
+    }
+
+    /* Free Demo */
     .demo-section {
       padding: 4rem 0;
       background: white;
@@ -215,10 +244,7 @@
       gap: 2rem;
       align-items: start;
     }
-    @media (min-width: 1024px) {
-      .demo-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    }
-    .demo-benefits h2 { margin-bottom: 1rem; color: var(--text); }
+    @media (min-width: 1024px) { .demo-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
     .demo-benefits p { color: var(--text-muted); margin-bottom: 1rem; }
     .demo-benefits ul { list-style: none; }
     .demo-benefits li {
@@ -237,12 +263,8 @@
       border-radius: 1rem;
       border: 1px solid rgba(139,111,71,0.1);
     }
-    .demo-form h3 { margin-bottom: 1rem; color: var(--text); font-size: 1.25rem; }
-    .demo-form label {
-      display: block;
-      font-size: 0.875rem; font-weight: 600;
-      color: var(--text); margin-bottom: 0.25rem;
-    }
+    .demo-form h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+    .demo-form label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
     .demo-form input, .demo-form select {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -265,74 +287,7 @@
     }
     .demo-form button:hover { background: var(--primary-hover); }
 
-    /* Mentor / Founder Section */
-    .mentor-section {
-      padding: 4rem 0;
-      background: var(--cream);
-    }
-    .mentor-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    @media (min-width: 768px) {
-      .mentor-grid { grid-template-columns: 280px 1fr; }
-    }
-    .mentor-image {
-      width: 100%; max-width: 280px;
-      aspect-ratio: 1;
-      border-radius: 1rem;
-      background: linear-gradient(135deg, var(--light-brown) 0%, var(--accent) 100%);
-      object-fit: cover;
-    }
-    .mentor-content h2 { margin-bottom: 1rem; color: var(--text); }
-    .mentor-content .philosophy {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-bottom: 1rem;
-      line-height: 1.7;
-    }
-    .mentor-content p { color: var(--text-muted); margin-bottom: 0.75rem; }
-
-    /* Testimonials */
-    .testimonials-section {
-      padding: 4rem 0;
-      background: white;
-      border-top: 1px solid rgba(139,111,71,0.08);
-    }
-    .testimonials-wrapper {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding-bottom: 1rem;
-    }
-    .testimonials-wrapper::-webkit-scrollbar { display: none; }
-    .testimonials-grid {
-      display: flex;
-      gap: 1.5rem;
-      padding: 0.5rem 0;
-    }
-    .testimonial-card {
-      flex: 0 0 min(100%, 340px);
-      scroll-snap-align: start;
-      background: var(--cream);
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(139,111,71,0.08);
-    }
-    .testimonial-card blockquote {
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .testimonial-card .author { font-weight: 600; color: var(--text); }
-    .testimonial-card .stage { font-size: 0.875rem; color: var(--text-muted); }
-
-    /* Learning Resources */
+    /* Content Hub */
     .resources-section { padding: 4rem 0; }
     .resources-grid {
       display: grid;
@@ -354,6 +309,101 @@
     }
     .resource-card h4 { font-size: 1rem; margin-bottom: 0.25rem; }
     .resource-card span { font-size: 0.8rem; color: var(--text-muted); }
+    .content-hub-cta {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 0.75rem;
+      text-align: center;
+    }
+    .content-hub-cta input {
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(139,111,71,0.2);
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 0.75rem;
+    }
+    .content-hub-cta button {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Founder Story */
+    .founder-section {
+      padding: 4rem 0;
+      background: var(--cream);
+    }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .founder-grid { grid-template-columns: 280px 1fr; } }
+    .founder-image-placeholder {
+      width: 100%; max-width: 280px;
+      aspect-ratio: 1;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, var(--light-brown) 0%, var(--accent) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+    .founder-content .philosophy {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .founder-content p { color: var(--text-muted); margin-bottom: 0.75rem; }
+
+    /* Nest Vision */
+    .nest-section {
+      padding: 4rem 0;
+      background: white;
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
+    .nest-content {
+      max-width: 640px;
+    }
+    .nest-content p { color: var(--text-muted); margin-bottom: 1rem; line-height: 1.7; }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 4rem 0;
+      background: var(--cream);
+      border-top: 1px solid rgba(139,111,71,0.08);
+    }
+    .testimonials-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 1rem;
+    }
+    .testimonials-wrapper::-webkit-scrollbar { display: none; }
+    .testimonials-grid {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.5rem 0;
+    }
+    .testimonial-card {
+      flex: 0 0 min(100%, 340px);
+      scroll-snap-align: start;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(139,111,71,0.08);
+    }
+    .testimonial-card blockquote { font-size: 1rem; color: var(--text); line-height: 1.6; margin-bottom: 1rem; }
+    .testimonial-card .author { font-weight: 600; color: var(--text); }
+    .testimonial-card .stage { font-size: 0.875rem; color: var(--text-muted); }
 
     /* Final CTA */
     .final-cta {
@@ -379,8 +429,6 @@
       font-weight: 700;
       border-radius: 0.5rem;
       text-decoration: none;
-      border: none;
-      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -405,12 +453,15 @@
     <div class="container">
       <div class="header-inner">
         <a href="index.html"><img src="logo.png" alt="Startup Gurukul" style="height:44px;"/></a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
         <nav class="nav-links">
+          <a href="#hero">Home</a>
           <a href="#programs">Programs</a>
-          <a href="#journey">Journey</a>
-          <a href="#demo">Free Demo</a>
           <a href="#resources">Resources</a>
-          <a href="#contact">Contact</a>
+          <a href="#founder-story">Founder Story</a>
+          <a href="#apply" class="nav-apply">Apply</a>
         </nav>
       </div>
     </div>
@@ -418,103 +469,108 @@
 
   <main>
     <!-- 1. Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
-            <h1>Learn How to Build and Scale Startups with Clarity</h1>
-            <p class="subheading">Startup Gurukul helps aspiring founders validate ideas, build execution systems, and grow businesses through structured coaching and real-world frameworks.</p>
+            <h1>From Startup Confusion to Execution Clarity</h1>
+            <p class="subheading">Startup Gurukul helps founders validate ideas, build execution systems, and scale startups through structured programs, coaching, and real-world frameworks.</p>
             <div class="hero-buttons">
-              <a href="#demo" class="btn-primary">Book Free Demo</a>
-              <a href="#programs" class="btn-secondary">Explore Programs</a>
+              <a href="#apply" class="btn-primary">Apply for Program</a>
+              <a href="#demo" class="btn-secondary">Book Free Demo</a>
             </div>
           </div>
           <div class="hero-visual">
-            <span>Founder mentor guiding students — illustration placeholder</span>
+            <span>Founder mentor guiding entrepreneur — illustration placeholder</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Founder Journey Section -->
+    <!-- 2. Founder Transformation Journey -->
     <section class="journey-section" id="journey">
       <div class="container">
         <div class="section-label"><span>Founder Journey</span></div>
-        <h2 class="section-title">The Structured Path Founders Follow</h2>
+        <h2 class="section-title">The Step-by-Step Learning Path</h2>
+        <p style="color:var(--text-muted);margin-bottom:2rem;">Founders should immediately see where they are in the journey.</p>
         <div class="journey-grid">
           <div class="journey-card">
-            <h3>Validate</h3>
-            <ul>
-              <li>Market research</li>
-              <li>Customer discovery</li>
-            </ul>
+            <h3>Stage 1 — Validate</h3>
+            <p>Understand the market, test ideas, and identify real problems worth solving.</p>
           </div>
           <div class="journey-card">
-            <h3>Build</h3>
-            <ul>
-              <li>MVP development</li>
-              <li>Product validation</li>
-            </ul>
+            <h3>Stage 2 — Build</h3>
+            <p>Develop MVPs, define positioning, and prepare for product-market fit.</p>
           </div>
           <div class="journey-card">
-            <h3>Grow</h3>
-            <ul>
-              <li>Customer acquisition</li>
-              <li>Marketing strategy</li>
-            </ul>
+            <h3>Stage 3 — Grow</h3>
+            <p>Customer acquisition systems, marketing strategy, and sales frameworks.</p>
           </div>
           <div class="journey-card">
-            <h3>Scale</h3>
-            <ul>
-              <li>Systems</li>
-              <li>Partnerships</li>
-            </ul>
+            <h3>Stage 4 — Scale</h3>
+            <p>Team building, operations, partnerships, and long-term growth systems.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. Programs Section -->
+    <!-- 3. Programs Section — Revenue Engine -->
     <section class="programs-section" id="programs">
       <div class="container">
         <div class="section-label"><span>Programs</span></div>
-        <h2 class="section-title">What You Can Learn</h2>
+        <h2 class="section-title">Convert Learning Into Results</h2>
+        <p style="color:var(--text-muted);margin-bottom:2rem;">Programs separated by learning format.</p>
         <div class="program-cards">
           <div class="program-card">
-            <span class="badge">For idea-stage founders</span>
-            <h3>Startup Foundation Program</h3>
-            <p>Learn validation and MVP building. Get clarity on your idea before you build.</p>
+            <span class="badge">Cohort Programs</span>
+            <h3>Live Structured Programs</h3>
+            <p>Learn and build alongside other entrepreneurs. Cohort-based accountability and peer support.</p>
             <div class="card-actions">
               <a href="#demo">View Details</a>
-              <a href="#demo" class="enroll">Enroll Now</a>
+              <a href="#apply" class="enroll">Enroll Now</a>
             </div>
           </div>
           <div class="program-card">
-            <span class="badge">For early startups</span>
-            <h3>Growth Program</h3>
-            <p>Customer acquisition and GTM strategy. Scale your first 100 customers.</p>
+            <span class="badge">Self-Paced Blueprints</span>
+            <h3>Step-by-Step Frameworks</h3>
+            <p>Startup frameworks you can learn at your own pace. Templates, playbooks, and guides.</p>
             <div class="card-actions">
               <a href="#demo">View Details</a>
-              <a href="#demo" class="enroll">Enroll Now</a>
+              <a href="#apply" class="enroll">Enroll Now</a>
             </div>
           </div>
           <div class="program-card">
-            <span class="badge">Mindset & leadership</span>
-            <h3>Founder Superpowers</h3>
-            <p>Mindset, decision-making, and leadership. Build the founder you need to be.</p>
+            <span class="badge">Founder Superpowers Modules</span>
+            <h3>Focused Skill Modules</h3>
+            <p>Decision-making, strategic thinking, leadership, and resilience. Build the founder you need to be.</p>
             <div class="card-actions">
               <a href="#demo">View Details</a>
-              <a href="#demo" class="enroll">Enroll Now</a>
+              <a href="#apply" class="enroll">Enroll Now</a>
             </div>
           </div>
-        </div>
-        <div style="text-align:center;margin-top:2rem;">
-          <a href="#demo" class="btn-primary">Book Free Demo</a>
         </div>
       </div>
     </section>
 
-    <!-- 4. Free Demo Section -->
+    <!-- 4. Premium 1:1 Coaching -->
+    <section class="coaching-section" id="coaching">
+      <div class="container">
+        <div class="section-label"><span>Premium</span></div>
+        <h2 class="section-title">1:1 Coaching — High-Value Monetization</h2>
+        <div class="coaching-card">
+          <span class="exclusive-badge">Limited Slots · Application Required</span>
+          <h3>Work directly with mentors to solve strategic startup challenges and accelerate execution.</h3>
+          <ul>
+            <li>Personalized strategy sessions</li>
+            <li>Execution diagnostics</li>
+            <li>Growth roadmap</li>
+          </ul>
+          <a href="#apply" class="btn-primary">Apply for 1:1 Coaching</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Free Demo Section -->
     <section class="demo-section" id="demo">
       <div class="container">
         <div class="section-label"><span>Free Demo</span></div>
@@ -551,25 +607,71 @@
       </div>
     </section>
 
-    <!-- 5. Mentor / Founder Section -->
-    <section class="mentor-section">
+    <!-- 6. Free Content Hub -->
+    <section class="resources-section" id="resources">
       <div class="container">
-        <div class="section-label"><span>Our Founder</span></div>
-        <h2 class="section-title">Who Guides Your Journey</h2>
-        <div class="mentor-grid">
-          <div class="mentor-image-placeholder" style="width:100%;max-width:280px;aspect-ratio:1;border-radius:1rem;background:linear-gradient(135deg, var(--light-brown) 0%, var(--accent) 100%);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.9rem;">Founder image</div>
-          <div class="mentor-content">
+        <div class="section-label"><span>Content Hub</span></div>
+        <h2 class="section-title">Free Content — Attract Traffic, Generate Leads</h2>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Each resource includes email capture and a call to join programs.</p>
+        <div class="resources-grid">
+          <a href="#content-signup" class="resource-card">
+            <h4>Startup strategy articles</h4>
+            <span>Validation, GTM, fundraising</span>
+          </a>
+          <a href="#content-signup" class="resource-card">
+            <h4>Founder playbooks</h4>
+            <span>Step-by-step execution guides</span>
+          </a>
+          <a href="#content-signup" class="resource-card">
+            <h4>Execution frameworks</h4>
+            <span>Templates and decision tools</span>
+          </a>
+          <a href="#content-signup" class="resource-card">
+            <h4>Case studies</h4>
+            <span>Real startup progress stories</span>
+          </a>
+        </div>
+        <div class="content-hub-cta" id="content-signup">
+          <p style="font-weight:600;margin-bottom:0.75rem;">Get free resources — join our list</p>
+          <form onsubmit="event.preventDefault(); alert('Thanks! Check your email for resources.');">
+            <input type="email" placeholder="Your email" required/>
+            <button type="submit">Get Resources & Join Programs</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Founder Story -->
+    <section class="founder-section" id="founder-story">
+      <div class="container">
+        <div class="section-label"><span>Founder Story</span></div>
+        <h2 class="section-title">Credibility & Emotional Trust</h2>
+        <div class="founder-grid">
+          <div class="founder-image-placeholder">Founder image</div>
+          <div class="founder-content">
             <p class="philosophy">"Startup Gurukul was created to help founders move from confusion to structured execution."</p>
-            <p>Built from real experience guiding early-stage founders, our approach combines frameworks with hands-on coaching. We believe clarity comes from structure—and structure comes from the right systems.</p>
+            <p>Built from real experience guiding early-stage founders. Lessons from building startups—what works, what doesn't, and how to avoid common pitfalls.</p>
+            <p>The philosophy is grounded and experience-driven. Authentic storytelling, not exaggerated claims. We believe clarity comes from structure—and structure comes from the right systems.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- 8. The Nest Vision -->
+    <section class="nest-section" id="nest">
       <div class="container">
-        <div class="section-label"><span>Testimonials</span></div>
+        <div class="section-label"><span>The Nest Vision</span></div>
+        <h2 class="section-title">Inspire Long-Term Vision</h2>
+        <div class="nest-content">
+          <p>A future co-living ecosystem for founders—where entrepreneurs learn, build, and collaborate. Community, sustainability, and a deep learning environment. Coming soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Testimonials / Success Stories -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-label"><span>Success Stories</span></div>
         <h2 class="section-title">What Founders Say</h2>
         <div class="testimonials-wrapper">
           <div class="testimonials-grid">
@@ -590,46 +692,17 @@
             </div>
           </div>
         </div>
-        <div style="text-align:center;margin-top:2rem;">
-          <a href="#demo" class="btn-primary">Book Free Demo</a>
-        </div>
       </div>
     </section>
 
-    <!-- 7. Learning Resources Section -->
-    <section class="resources-section" id="resources">
-      <div class="container">
-        <div class="section-label"><span>Resources</span></div>
-        <h2 class="section-title">Learning Resources</h2>
-        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Add value and bring people back.</p>
-        <div class="resources-grid">
-          <a href="#contact" class="resource-card">
-            <h4>Startup guides</h4>
-            <span>Step-by-step frameworks</span>
-          </a>
-          <a href="#contact" class="resource-card">
-            <h4>Founder frameworks</h4>
-            <span>Decision-making tools</span>
-          </a>
-          <a href="#contact" class="resource-card">
-            <h4>Case studies</h4>
-            <span>Real founder stories</span>
-          </a>
-          <a href="#contact" class="resource-card">
-            <h4>Blog articles</h4>
-            <span>Validation, GTM, fundraising</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Final CTA Section -->
-    <section class="final-cta" id="contact">
+    <!-- 10. Final Conversion Section -->
+    <section class="final-cta" id="apply">
       <h2>Start Your Founder Journey Today</h2>
-      <p>Join Startup Gurukul and move from uncertainty to structured growth. Book a free demo or explore our programs.</p>
+      <p>Apply to Startup Gurukul, book a free demo, or explore our programs. Take the next step.</p>
       <div class="cta-buttons">
-        <a href="#demo" class="btn-white">Book Free Demo</a>
-        <a href="#programs" class="btn-outline">Join Startup Gurukul</a>
+        <a href="#demo" class="btn-white">Apply to Startup Gurukul</a>
+        <a href="#demo" class="btn-outline">Book Free Demo</a>
+        <a href="#programs" class="btn-outline">Explore Programs</a>
       </div>
     </section>
   </main>
